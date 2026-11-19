@@ -1,0 +1,764 @@
+
+/* =================================
+   CONFIGURACIÓN GENERAL
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: #100e13;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* =================================
+   ENCABEZADO
+================================= */
+
+header {
+    width: 100%;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 12, 18, 0.95);
+    border-bottom: 1px solid rgba(190, 35, 58, 0.5);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #e52d48;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    display: block;
+    font-size: 9px;
+    color: #d9b76e;
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ed4058;
+}
+
+/* BOTÓN DE MÚSICA */
+
+#botonMusica {
+    padding: 10px 18px;
+    border: 1px solid #d9b76e;
+    border-radius: 25px;
+    background: transparent;
+    color: #d9b76e;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#botonMusica:hover {
+    background: #a92535;
+    color: white;
+}
+
+/* =================================
+   PORTADA PRINCIPAL
+================================= */
+
+
+.portada {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 120px 10% 70px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10, 8, 15, 0.90),
+            rgba(10, 8, 15, 0.45),
+            rgba(10, 8, 15, 0.15)
+        ),
+        url("portada.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.contenido-portada {
+    max-width: 650px;
+    animation: aparecer 1.5s ease;
+}
+
+.subtitulo {
+    color: #d9b76e;
+    letter-spacing: 6px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.portada h1 {
+    font-size: clamp(55px, 9vw, 100px);
+    line-height: 0.95;
+    color: #ffffff;
+    text-shadow: 0 5px 25px rgba(0,0,0,0.6);
+    margin-bottom: 25px;
+}
+
+.contenido-portada p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #e8dfe0;
+    margin-bottom: 30px;
+}
+
+/* BOTÓN PRINCIPAL */
+
+.boton {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #b5233c;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    transition: 0.4s;
+}
+
+.boton:hover {
+    background: #d9b76e;
+    color: #151015;
+    transform: translateY(-5px);
+}
+
+/* =================================
+   SECCIONES GENERALES
+================================= */
+
+section:not(.portada) {
+    padding: 100px 8%;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 38px;
+    color: #e74a61;
+    margin-bottom: 35px;
+    letter-spacing: 2px;
+}
+
+/* =================================
+   HISTORIA
+================================= */
+
+#historia {
+    background: #19151c;
+    min-height: 250px;
+}
+
+/* =================================
+   PERSONAJES
+================================= */
+
+#personajes {
+    background: #211820;
+    min-height: 250px;
+}
+
+/* =================================
+   GALERÍA
+================================= */
+
+#galeria {
+    background: #151219;
+    min-height: 250px;
+}
+
+/* =================================
+   VIDEOS
+================================= */
+
+#videos {
+    background: #211820;
+    min-height: 250px;
+}
+
+/* =================================
+   PIE DE PÁGINA
+================================= */
+
+footer {
+    background: #0b090d;
+    padding: 30px;
+    text-align: center;
+    color: #b9aeb5;
+    border-top: 1px solid #792438;
+    line-height: 2;
+}
+
+/* =================================
+   ANIMACIÓN DE APARICIÓN
+================================= */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =================================
+   RESPONSIVE PARA CELULARES
+================================= */
+
+@media (max-width: 850px) {
+
+    header {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .portada {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .portada h1 {
+        font-size: 55px;
+    }
+
+    section:not(.portada) {
+        padding: 75px 6%;
+    }
+}
+
+/* =====================================
+   NIEVE ANIMADA
+===================================== */
+
+#nieve {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.copo {
+    position: absolute;
+    top: -20px;
+    color: white;
+    animation: caer linear forwards;
+    text-shadow: 0 0 8px white;
+}
+
+@keyframes caer {
+
+    0% {
+        transform: translateY(-20px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(105vh) rotate(360deg);
+    }
+
+}
+
+/* =================================
+   SECCIÓN HISTORIA
+================================= */
+
+.historia {
+    background:
+        linear-gradient(135deg, #19151c, #28151e);
+}
+
+.etiqueta {
+    color: #d9b76e;
+    letter-spacing: 5px;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.historia h2 {
+    font-size: 42px;
+    margin-bottom: 45px;
+}
+
+.contenido-historia {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 35px;
+    max-width: 1100px;
+    margin: auto;
+    text-align: left;
+}
+
+.texto-historia,
+.datos-historia {
+    padding: 35px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(217,183,110,0.3);
+    line-height: 1.9;
+}
+
+.texto-historia h3,
+.datos-historia h3 {
+    color: #e74a61;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.texto-historia p {
+    color: #ded5dc;
+    margin-bottom: 15px;
+}
+
+.datos-historia p {
+    color: #ded5dc;
+    margin-bottom: 12px;
+}
+
+.datos-historia strong {
+    color: #d9b76e;
+}
+
+@media (max-width: 750px) {
+
+    .contenido-historia {
+        grid-template-columns: 1fr;
+    }
+
+    .historia h2 {
+        font-size: 32px;
+    }
+
+}
+
+/* =====================================
+   PERSONAJES - DISEÑO PROFESIONAL
+===================================== */
+
+.personajes {
+    background:
+        radial-gradient(circle at top, #39202b, #130f16 70%);
+}
+
+.intro-personajes {
+    color: #cfc4cb;
+    margin: -15px auto 45px;
+    max-width: 600px;
+    line-height: 1.8;
+}
+
+.contenedor-personajes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    max-width: 1250px;
+    margin: auto;
+}
+
+.personaje-card {
+    position: relative;
+    background: #211820;
+    border: 1px solid rgba(217,183,110,0.3);
+    border-radius: 16px;
+    overflow: hidden;
+    text-align: left;
+
+    opacity: 0;
+    transform: translateY(45px) scale(0.95);
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease,
+        border-color 0.5s ease,
+        opacity 0.7s ease;
+}
+
+.personaje-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* IMÁGENES */
+
+.personaje-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+
+    transition: transform 0.7s ease;
+}
+
+/* INFORMACIÓN */
+
+.personaje-info {
+    padding: 22px;
+}
+
+.personaje-info h3 {
+    color: #e74a61;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.personaje-info span {
+    display: block;
+    color: #d9b76e;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 13px;
+}
+
+.personaje-info p {
+    color: #d5cbd2;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* ANIMACIÓN AL PASAR EL CURSOR */
+
+.personaje-card:hover {
+    transform: translateY(-15px) scale(1.04);
+    border-color: #e74a61;
+
+    box-shadow:
+        0 15px 35px rgba(185,35,60,0.3),
+        0 0 20px rgba(217,183,110,0.15);
+}
+
+.personaje-card:hover img {
+    transform: scale(1.12);
+}
+
+/* BRILLO DE LAS TARJETAS */
+
+.personaje-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.13),
+        transparent
+    );
+
+    z-index: 2;
+    pointer-events: none;
+}
+
+.personaje-card:hover::before {
+    left: 150%;
+    transition: left 0.8s ease;
+}
+
+/* ADAPTACIÓN A PANTALLAS */
+
+@media (max-width: 1000px) {
+    .contenedor-personajes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .contenedor-personajes {
+        grid-template-columns: 1fr;
+    }
+
+    .personaje-card img {
+        height: 350px;
+    }
+}
+
+/* =====================================
+   GALERÍA NAVIDEÑA
+===================================== */
+
+.galeria {
+    background: linear-gradient(135deg, #17121a, #2b1720);
+}
+
+.intro-galeria {
+    color: #d5cbd2;
+    max-width: 650px;
+    margin: -15px auto 45px;
+    line-height: 1.8;
+}
+
+.contenedor-galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.foto-galeria {
+    position: relative;
+    height: 280px;
+    padding: 0;
+    border: 1px solid rgba(217,183,110,0.4);
+    border-radius: 14px;
+    overflow: hidden;
+    background: #211820;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(35px);
+    transition: 0.6s ease;
+}
+
+.foto-galeria.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.foto-galeria img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.foto-galeria span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 12px 18px;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: left;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0,0,0,0.9)
+    );
+}
+
+.foto-galeria:hover img {
+    transform: scale(1.12);
+}
+
+.foto-galeria:hover {
+    border-color: #e74a61;
+    box-shadow: 0 0 25px rgba(231,74,97,0.3);
+}
+
+/* =====================================
+   VISOR DE FOTOGRAFÍAS
+===================================== */
+
+.visor {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.93);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.visor.activo {
+    display: flex;
+    animation: aparecer 0.3s ease;
+}
+
+.visor img {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border: 2px solid #d9b76e;
+    border-radius: 10px;
+    box-shadow: 0 0 35px rgba(217,183,110,0.2);
+}
+
+.cerrar-visor {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+}
+
+.cerrar-visor:hover {
+    color: #e74a61;
+}
+
+@media (max-width: 850px) {
+    .contenedor-galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .contenedor-galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .foto-galeria {
+        height: 300px;
+    }
+}
+
+/* =====================================
+   ESPECIAL DE NAVIDAD
+===================================== */
+
+.especial {
+    background:
+        radial-gradient(circle at top, #47202c, #100e13 75%);
+}
+
+.intro-especial {
+    max-width: 700px;
+    margin: -15px auto 45px;
+    color: #d5cbd2;
+    line-height: 1.8;
+}
+
+.reproductor {
+    max-width: 1000px;
+    margin: auto;
+    background: #1b151d;
+    border: 1px solid rgba(217,183,110,0.5);
+    border-radius: 18px;
+    overflow: hidden;
+
+    box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+
+    transition: 0.4s ease;
+}
+
+.reproductor:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 45px rgba(185,35,60,0.25);
+}
+
+/* VIDEO */
+
+.video-contenedor {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+}
+
+.video-contenedor iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+    top: 0;
+    left: 0;
+}
+
+/* INFORMACIÓN DEL VIDEO */
+
+.informacion-video {
+    padding: 35px;
+    text-align: left;
+}
+
+.categoria-video {
+    color: #d9b76e;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.informacion-video h3 {
+    color: #e74a61;
+    font-size: 30px;
+    margin: 15px 0;
+}
+
+.informacion-video p {
+    color: #d5cbd2;
+    line-height: 1.8;
+    max-width: 750px;
+}
+
+.detalles-video {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 25px;
+    color: #d9b76e;
+    font-size: 13px;
+}
+
+.nota-video {
+    color: #a99da5;
+    font-size: 12px;
+    margin-top: 25px;
+}
+
+@media (max-width: 600px) {
+
+    .informacion-video {
+        padding: 22px;
+    }
+
+    .informacion-video h3 {
+        font-size: 24px;
+    }
+
+    .detalles-video {
+        gap: 12px;
+    }
+
+}
